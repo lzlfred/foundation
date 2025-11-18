@@ -1,12 +1,551 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World Page</title>
+  <meta charset="UTF-8" />
+  <title>Liu Horizon Foundation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Liu Horizon Foundation is a private operating foundation dedicated to protecting and restoring the ocean's natural ecosystems while nurturing human inner peace and wellness and educating the younger generation."
+  />
+  <style>
+    :root {
+      --primary: #0b7285;
+      --primary-dark: #1864ab;
+      --primary-light: #e3fafc;
+      --bg: #f5f7fa;
+      --text: #1f2933;
+      --muted: #6b7280;
+      --card-bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--primary-dark);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #ffffff;
+      padding: 2.5rem 1.5rem 1.75rem;
+    }
+
+    .header-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    nav a {
+      margin-left: 1.25rem;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    nav a:first-child {
+      margin-left: 0;
+    }
+
+    .hero {
+      max-width: 760px;
+    }
+
+    .hero h1 {
+      font-size: 2.3rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      max-width: 640px;
+      color: #e3f8ff;
+    }
+
+    .hero-tags {
+      margin-top: 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      padding: 0.3rem 0.7rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.9;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.75rem;
+    }
+
+    @media (min-width: 900px) {
+      .grid-2 {
+        grid-template-columns: 2fr 1.3fr;
+      }
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 1.1rem;
+      padding: 1.5rem 1.6rem;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #0b7285;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      margin-bottom: 0.9rem;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin: 1.1rem 0 0.4rem;
+    }
+
+    p {
+      font-size: 0.97rem;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    ul {
+      padding-left: 1.1rem;
+      margin-top: 0.4rem;
+      font-size: 0.95rem;
+    }
+
+    li {
+      margin-bottom: 0.25rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.4rem;
+    }
+
+    .pill {
+      font-size: 0.8rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: var(--primary-light);
+      color: #0b7285;
+    }
+
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.75rem;
+    }
+
+    .stat {
+      padding: 0.4rem 0.9rem;
+      border-radius: 0.7rem;
+      background: #edf2ff;
+      font-size: 0.8rem;
+    }
+
+    .stat span {
+      display: block;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .people-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0.5rem;
+    }
+
+    .people-list li {
+      margin-bottom: 0.6rem;
+    }
+
+    .person-name {
+      font-weight: 600;
+      font-size: 0.96rem;
+    }
+
+    .person-role {
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .section-spacer {
+      height: 0.75rem;
+    }
+
+    footer {
+      background: #0b7285;
+      color: #e3f8ff;
+      padding: 1.2rem 1.5rem;
+      font-size: 0.85rem;
+    }
+
+    .footer-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+  </style>
 </head>
 <body>
-    <h1>Hello World!</h1>
-    <p>This is a simple "Hello World" example.</p>
+  <header>
+    <div class="header-inner">
+      <div class="top-bar">
+        <div class="logo">Liu Horizon Foundation</div>
+        <nav>
+          <a href="#mission">Mission</a>
+          <a href="#programs">Programs</a>
+          <a href="#where-we-work">Where We Work</a>
+          <a href="#grants">Grants &amp; Partnerships</a>
+          <a href="#leadership">Leadership</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+
+      <div class="hero">
+        <h1>Protecting Oceans. Nurturing Inner Peace. Inspiring the Next Generation.</h1>
+        <p>
+          Liu Horizon Foundation is a private operating foundation dedicated to
+          protecting and restoring the ocean’s natural ecosystems while
+          nurturing human inner peace and wellness and educating the younger
+          generation about climate, ecology, and environmental responsibility.
+        </p>
+        <div class="hero-tags">
+          <div class="tag">Private Operating Foundation</div>
+          <div class="tag">Ocean Conservation</div>
+          <div class="tag">Youth Education</div>
+          <div class="tag">Mindfulness &amp; Wellness</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Mission -->
+    <section id="mission" class="grid grid-2">
+      <div class="card">
+        <div class="eyebrow">Our Mission</div>
+        <h2>Connecting young people, oceans, and inner well-being</h2>
+        <p>
+          Liu Horizon Foundation intends to protect and restore the ocean's natural
+          ecosystems while nurturing human inner peace and wellness and educating
+          the younger generation.
+        </p>
+        <p style="margin-top: 0.5rem;">
+          We focus on teaching young people about the climate and empowering them
+          to maintain healthy ecosystems. All programs connect participants with
+          nature while fostering self-awareness, compassion, and environmental
+          responsibility.
+        </p>
+        <div class="stat-row">
+          <div class="stat">
+            <span>90%</span>
+            Of time and funds directed to mission programs
+          </div>
+          <div class="stat">
+            <span>10%</span>
+            Reserved for administration &amp; operations
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="eyebrow">What we focus on</div>
+        <ul>
+          <li>Ocean ecosystem protection and restoration</li>
+          <li>Climate and environmental education for youth</li>
+          <li>Mindfulness, emotional, and physical wellness</li>
+          <li>Community-based coastal stewardship</li>
+          <li>Global collaboration with ocean-focused partners</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="section-spacer"></div>
+
+    <!-- Programs -->
+    <section id="programs" class="grid grid-2">
+      <div class="card">
+        <div class="eyebrow">Programs</div>
+        <h2>How we carry out our mission</h2>
+
+        <h3>Ocean-Themed Mindfulness Retreats</h3>
+        <p>
+          We host ocean-themed mindfulness retreats that combine time in coastal
+          environments with guided practices led by qualified yoga, meditation,
+          and wellness instructors. Participants explore how inner calm and
+          compassion support long-term care for the planet.
+        </p>
+
+        <h3>Coastal Cleanups &amp; Wellness Events</h3>
+        <p>
+          We organize local coastal cleanup events, often paired with community
+          wellness activities and educational sessions on ocean health, climate
+          impacts, and individual actions that make a difference.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Qingdao international students seminar and education</h3>
+        <p>
+          Collaborate with Qingdao voluntery study-aboard organzation to host seminar and education programs for high school students to learn information, study aboard (eg, the U.S) and share career opportunities for college and graduate school students.
+        </p>
+
+        <h3>Partnerships with Ocean-Focused NGOs &amp; Institutions</h3>
+        <p>
+          We may partner with ocean-focused NGOs or marine science institutions to
+          co-host awareness events or fund educational materials that advance
+          shared goals around ocean conservation and youth education.
+        </p>
+
+        <div class="pill-row">
+          <span class="pill">Workshops</span>
+          <span class="pill">Retreats</span>
+          <span class="pill">Cleanups</span>
+          <span class="pill">Educational Materials</span>
+          <span class="pill">Collaborative Events</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-spacer"></div>
+
+    <!-- Where We Work -->
+    <section id="where-we-work" class="grid grid-2">
+      <div class="card">
+        <div class="eyebrow">Where We Work</div>
+        <h2>Coastal regions vulnerable to ocean &amp; climate challenges</h2>
+        <p>
+          Liu Horizon Foundation focuses on coastal areas that are vulnerable to
+          climate or ocean-related challenges, and communities affected by
+          environmental degradation.
+        </p>
+        <ul>
+          <li>Coastal regions in California</li>
+          <li>Selected coastal areas in China</li>
+          <li>Selected coastal areas in Southeast Asia</li>
+        </ul>
+        <p class="muted" style="margin-top: 0.5rem;">
+          Specific locations and partnerships are determined based on community
+          need, environmental impact, and program feasibility.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Our Approach to International Work</h3>
+        <p>
+          When working internationally, the Foundation follows U.S. legal
+          requirements and best practices to ensure that funds and activities are
+          used solely for charitable purposes. We perform careful due diligence
+          and monitoring of foreign partners and projects.
+        </p>
+      </div>
+    </section>
+
+    <div class="section-spacer"></div>
+
+    <!-- Grants & Partnerships -->
+    <section id="grants" class="grid grid-2">
+      <div class="card">
+        <div class="eyebrow">Grants &amp; Partnerships</div>
+        <h2>Supporting aligned organizations</h2>
+        <p>
+          From time to time, Liu Horizon Foundation may make grants to
+          ocean-focused NGOs or marine science institutions to co-host awareness
+          events or fund educational materials that align with our mission.
+        </p>
+
+        <h3>Eligibility &amp; Alignment</h3>
+        <p>Potential partner organizations must demonstrate:</p>
+        <ul>
+          <li>A mission consistent with ocean protection and youth education</li>
+          <li>Capacity to carry out the proposed program or project</li>
+          <li>Transparent financial practices and reporting</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>How We Steward Funds</h3>
+        <p>
+          Before funding, we request proposals describing mission alignment,
+          project plans, budgets, and expected outcomes. After funds are
+          distributed, partners are asked to provide detailed reports and
+          documentation of how funds were used.
+        </p>
+        <p style="margin-top: 0.4rem;">
+          The Board of Directors maintains records of all distributions and may
+          request additional information or site visits. If funds are misused or
+          appear to be misused, partners are expected to return any misapplied
+          amounts.
+        </p>
+        <p class="muted" style="margin-top: 0.4rem;">
+          At this time, primary funding is provided by the Foundation’s directors.
+        </p>
+      </div>
+    </section>
+
+    <div class="section-spacer"></div>
+
+    <!-- Leadership -->
+    <section id="leadership" class="grid grid-2">
+      <div class="card">
+        <div class="eyebrow">Leadership</div>
+        <h2>Board of Directors</h2>
+        <p>
+          Liu Horizon Foundation is overseen by a volunteer Board of Directors.
+          The Board guides strategy, approves programs and grants, and ensures
+          that resources are used to advance the Foundation’s charitable
+          purposes.
+        </p>
+
+        <ul class="people-list">
+          <li>
+            <div class="person-name">Ruiqi Liu</div>
+            <div class="person-role">President &amp; Director</div>
+          </li>
+          <li>
+            <div class="person-name">Zhaolei Liu</div>
+            <div class="person-role">Secretary, Treasurer &amp; Director</div>
+          </li>
+          <li>
+            <div class="person-name">Thomas Sun</div>
+            <div class="person-role">Director</div>
+          </li>
+          <li>
+            <div class="person-name">Xiaochen Sun</div>
+            <div class="person-role">Director</div>
+          </li>
+          <li>
+            <div class="person-name">Hanbo Zhao</div>
+            <div class="person-role">Director</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Program Team &amp; Partners</h3>
+        <p>
+          The Board oversees qualified staff, contractors, and partners,
+          including:
+        </p>
+        <ul>
+          <li>Environmental educators</li>
+          <li>Yoga and meditation instructors</li>
+          <li>Wellness and mindfulness facilitators</li>
+          <li>Operational and program support staff</li>
+        </ul>
+        <p class="muted" style="margin-top: 0.4rem;">
+          Teams may vary by project and location but are always selected for
+          their expertise, integrity, and alignment with our mission.
+        </p>
+      </div>
+    </section>
+
+    <div class="section-spacer"></div>
+
+    <!-- Contact -->
+    <section id="contact" class="grid">
+      <div class="card">
+        <div class="eyebrow">Contact</div>
+        <h2>Get in touch</h2>
+        <p>
+          For questions about programs or potential partnerships, please contact
+          us by mail. You may also add an email address or online contact form
+          here as your communications grow.
+        </p>
+
+        <h3 style="margin-top: 0.9rem;">Mailing Address</h3>
+        <p>
+          Liu Horizon Foundation<br />
+          1128 Boranda Ave<br />
+          Mountain View, California 94040<br />
+          United States
+        </p>
+
+        <!--
+          Optional: add an email once you have one set up
+          <p style="margin-top: 0.5rem;">
+            Email: <a href="mailto:info@liuhorizon.org">info@liuhorizon.org</a>
+          </p>
+        -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Liu Horizon Foundation. All rights reserved.</div>
+      <div class="muted">
+        A private operating foundation dedicated to ocean health, youth education, and inner wellness.
+      </div>
+    </div>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </footer>
 </body>
 </html>
